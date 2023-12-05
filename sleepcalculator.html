@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sleep Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h2>Sleep Calculator</h2>
+  <label for="age-group">Select your age group:</label>
+  <select id="age-group">
+    <option value="school-age">School-age (6-12 years)</option>
+    <option value="teen">Teen (13-18 years)</option>
+    <option value="adult">Adult (18 years and older)</option>
+  </select>
+  <br>
+  <label for="wake-time">Select your preferred wake-up time:</label>
+  <input type="time" id="wake-time">
+  <br>
+  <button onclick="calculateBedTime()">Calculate Bedtime</button>
+  <p>Your recommended bedtime window is: <span id="bedtime-window"></span></p>
+  <button onclick="resetData()">Reset</button>
+
+  <script src="sleepCalculator.js"></script>
+</body>
+</html>
