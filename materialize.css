@@ -1,0 +1,41 @@
+.material-symbols-outlined {
+  line-height: unset !important;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 200,
+  'opsz' 48,
+}
+
+.carousel {
+  margin-bottom: 5px;
+}
+
+.nav-wrapper {
+  padding-left: 20px;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.carousel .carousel-item {
+  position: relative;
+}
+
+.carousel .carousel-item .btn {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.carousel .carousel-item > p {
+  margin-bottom: 70px;
+}
