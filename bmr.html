@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BMR Calculator</title>
+</head>
+<body>
+  <h2>BMR Calculator</h2>
+  
+  <label for="weight">Weight (lbs):</label>
+  <input type="number" id="weight" placeholder="Enter weight in pounds"><br><br>
+  
+  <label for="feet">Height (feet):</label>
+  <input type="number" id="feet" placeholder="Feet"><br><br>
+  
+  <label for="inches">Height (inches):</label>
+  <input type="number" id="inches" placeholder="Inches"><br><br>
+  
+  <button onclick="calculateBMR()">Calculate BMR</button><br><br>
+  
+  <p id="result"></p>
+
+  <script>
+    function calculateBMR() {
+      var weight = parseFloat(document.getElementById('weight').value);
+      var feet = parseFloat(document.getElementById('feet').value);
+      var inches = parseFloat(document.getElementById('inches').value);
+      
+      // Convert height to total inches
+      var heightInInches = feet * 12 + inches;
+      
+      // Harris-Benedict Equation
+      var age = 30; // Set age as an example (can be input by the user)
+      var harrisBenedictMen = 88.362 + (13.397 * weight) + (4.799 * heightInInches) - (5.677 * age);
+      var harrisBenedictWomen = 447.593 + (9.247 * weight) + (3.098 * heightInInches) - (4.330 * age);
+      
+      // Mifflin-St Jeor Equation
+      var mifflinStJeorMen = 10 * weight + 6.25 * heightInInches - 5 * age + 5;
+      var mifflinStJeorWomen = 10 * weight + 6.25 * heightInInches - 5 * age - 161;
+      
+      // Displaying the results
+      var result = document.getElementById('result');
+      result.innerHTML = "<strong>BMR using Harris-Benedict Equation:</strong><br>For men: " + harrisBenedictMen.toFixed(2) + " calories/day<br>For women: " + harrisBenedictWomen.toFixed(2) + " calories/day<br><br>";
+      result.innerHTML += "<strong>BMR using Mifflin-St Jeor Equation:</strong><br>For men: " + mifflinStJeorMen.toFixed(2) + " calories/day<br>For women: " + mifflinStJeorWomen.toFixed(2) + " calories/day";
+    }
+  </script>
+</body>
+</html>
