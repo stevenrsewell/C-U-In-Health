@@ -3,146 +3,157 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Smoking Risks Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smoking Risk</title>
+
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
-    <h1>Smoking Risks Calculator</h1>
+    <header>
+        <!-- Navigation Bar -->
+        <nav>
+            <div class="nav-wrapper">
+                <a href="../index.html" class="brand-logo">C. U. In Health</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                    <span class="material-symbols-outlined">
+                        density_medium
+                    </span>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="bmi.html">Body Mass Index</a></li>
+                        <li><a href="bmr.html">Basal Metabolic Rate</a></li>
+                        <li><a href="tdee.html">Total Daily Energy Expenditure</a></li>
+                        <li><a href="sleep.html">Sleep Interval</a></li>
+                        <li><a href="smoking.html">Smoking Risk</a></li>
+                    </ul>
+            </div>
+        </nav>
+        <!-- Mobile Nav -->
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="bmi.html">Body Mass Index</a></li>
+            <li><a href="bmr.html">Basal Metabolic Rate</a></li>
+            <li><a href="tdee.html">Total Daily Energy Expenditure</a></li>
+            <li><a href="sleep.html">Sleep Interval</a></li>
+            <li><a href="smoking.html">Smoking Risk</a></li>
+        </ul>
+    </header>
 
-    <form id="smokingForm">
-        <label for="cigarettesPerDay">Cigarettes or Packs per day:</label>
-        <input type="number" id="cigarettesPerDay" placeholder="Enter number">
-        <select id="unit">
-            <option value="cigarettes">Cigarettes</option>
-            <option value="packs">Packs</option>
-        </select><br><br>
+    <main>
+        <div class="container">
+            <h2>Smoking Risks Calculator</h2>
 
-        <label for="gender">Gender:</label>
-        <select id="gender">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select><br><br>
+            <form id="smokingForm">
+                <div class="input-field">
+                    <label for="cigarettesPerDay">Cigarettes or Packs per day:</label>
+                    <input type="number" id="cigarettesPerDay" class="validate" placeholder="Enter number">
+                    <select id="unit" class="input-field">
+                        <option value="cigarettes">Cigarettes</option>
+                        <option value="packs">Packs</option>
+                    </select>
+                </div><br>
 
-        <label for="startDate">Start Date:</label>
-        <input type="date" id="startDate"><br><br>
+                <div class="input-field">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" class="input-field">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div><br>
 
-        <label for="endDate">End Date:</label>
-        <input type="date" id="endDate">
-        <button type="button" onclick="setEndDate()">Haven't Stopped</button><br><br>
+                <div class="input-field">
+                    <label for="startDate">Start Date:</label>
+                    <input type="date" id="startDate" class="validate">
+                </div><br>
 
-        <button type="button" onclick="calculateRisks()">Calculate Risks</button>
-    </form>
+                <div class="input-field">
+                    <label for="endDate">End Date:</label>
+                    <input type="date" id="endDate" class="validate">
+                    <button type="button" onclick="setEndDate()" class="waves-effect waves-light btn">Haven't
+                        Stopped</button>
+                </div><br>
 
-    <div id="results" style="display: none;">
-        <h2>Results:</h2>
-        <p id="timeLost"></p>
-        <div id="risks"></div>
-    </div>
+                <button type="button" onclick="calculateRisks()" class="waves-effect waves-light btn">Calculate
+                    Risks</button>
+            </form>
 
-    <script>
-        function calculateTimeLost(smokedPerDay, unit, startDate, endDate) {
-            const cigarettesPerPack = 20;
-            const minutesPerCigarette = 11;
+            <div id="results" style="display: none;">
+                <h2>Results:</h2>
+                <p id="timeLost"></p>
+                <div id="risks"></div>
+            </div>
+        </div>
 
-            let totalCigarettes = 0;
+        <!-- Floating Action Button -->
+        <div class="fixed-action-btn">
+            <a class="btn-floating btn-large red"><span class="material-symbols-outlined">calculate</span></a>
+            <ul>
+                <li><a href="smoking.html" class="btn-floating purple"><span
+                            class="material-symbols-outlined">smoke_free</span></a></li>
+                <li><a href="sleep.html" class="btn-floating red"><span class="material-symbols-outlined">bed</span></a>
+                </li>
+                <li><a href="tdee.html" class="btn-floating yellow"><span
+                            class="material-symbols-outlined">exercise</span></a></li>
+                <li><a href="bmr.html" class="btn-floating green"><span
+                            class="material-symbols-outlined">grocery</span></a></li>
+                <li><a href="bmi.html" class="btn-floating blue"><span
+                            class="material-symbols-outlined">monitor_weight</span></a></li>
+            </ul>
+        </div>
+    </main>
 
-            if (unit === 'packs') {
-                totalCigarettes = smokedPerDay * cigarettesPerPack;
-            } else {
-                totalCigarettes = smokedPerDay;
-            }
+    <!-- Footer-->
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">C U in Health</h5>
+                    <p class="grey-text text-lighten-4">I'll C. U. in Health!</p>
+                </div>
+                <div class="col l6 s12">
+                    <h5 class="white-text">Calculators</h5>
+                    <div class="row">
+                        <div class="col s3">
+                            <a class="grey-text text-lighten-3" href="bmi.html">BMI</a>
+                        </div>
+                        <div class="col s3">
+                            <a class="grey-text text-lighten-3" href="bmr.html">BMR</a>
+                        </div>
+                        <div class="col s3">
+                            <a class="grey-text text-lighten-3" href="tdee.html">TDEE</a>
+                        </div>
+                        <div class="col s3">
+                            <a class="grey-text text-lighten-3" href="sleep.html">Sleep</a>
+                        </div>
+                        <div class="col s3">
+                            <a class="grey-text text-lighten-3" href="smoking.html">Smoking</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2023 C. U. in Health
+                <a class="grey-text text-lighten-4 right" href="https://stevensewell.com">Steven Sewell</a>
+            </div>
+        </div>
+    </footer>
 
-            const daysSmoked = (endDate - startDate) / (1000 * 60 * 60 * 24);
-            const totalTimeMinutes = totalCigarettes * daysSmoked * minutesPerCigarette;
-
-            const years = Math.floor(totalTimeMinutes / (60 * 24 * 365));
-            const months = Math.floor((totalTimeMinutes % (60 * 24 * 365)) / (60 * 24 * 30));
-            const weeks = Math.floor(((totalTimeMinutes % (60 * 24 * 365)) % (60 * 24 * 30)) / (60 * 24 * 7));
-            const days = Math.floor((((totalTimeMinutes % (60 * 24 * 365)) % (60 * 24 * 30)) % (60 * 24 * 7)) / (60 * 24));
-
-            let timeLost = '';
-            if (years > 0) {
-                timeLost += years + ' year' + (years !== 1 ? 's ' : ' ');
-            }
-            if (months > 0) {
-                timeLost += months + ' month' + (months !== 1 ? 's ' : ' ');
-            }
-            if (weeks > 0) {
-                timeLost += weeks + ' week' + (weeks !== 1 ? 's ' : ' ');
-            }
-            if (days > 0) {
-                timeLost += days + ' day' + (days !== 1 ? 's' : '');
-            }
-
-            return timeLost.trim();
-        }
-
-        function displayRisks(gender) {
-            const maleRisks = {
-                lungCancerRisk: 'Increased 25 times',
-                erectileDysfunction: 'Smoking can contribute to issues with erections due to reduced blood flow.'
-            };
-
-            const femaleRisks = {
-                lungCancerRisk: 'Increased 25.7 times',
-                pregnancyIssues: 'Complications during pregnancy, such as preterm delivery, low birth weight, and increased risk of birth defects.',
-                menopause: 'Early menopause onset and potential for increased severity of symptoms.'
-            };
-
-            let risks = {};
-
-            if (gender === 'male') {
-                risks = { ...maleRisks };
-            } else if (gender === 'female') {
-                risks = { ...femaleRisks };
-            }
-
-            // Format the risks for display
-            let formattedRisks = '<ul>';
-            for (let key in risks) {
-                formattedRisks += `<li><strong>${key}:</strong> ${risks[key]}</li>`;
-            }
-            formattedRisks += '</ul>';
-
-            return formattedRisks;
-        }
-
-
-        function calculateRisks() {
-  const cigarettesPerDay = parseFloat(document.getElementById('cigarettesPerDay').value);
-  const unit = document.getElementById('unit').value;
-  const gender = document.getElementById('gender').value;
-  const startDate = new Date(document.getElementById('startDate').value);
-  const endDate = new Date(document.getElementById('endDate').value);
-
-  const timeLost = calculateTimeLost(cigarettesPerDay, unit, startDate, endDate);
-  const risks = displayRisks(gender);
-
-  const timeLostElement = document.getElementById('timeLost');
-  timeLostElement.textContent = `Time lost due to smoking: ${timeLost}`;
-
-  const risksElement = document.getElementById('risks');
-  risksElement.innerHTML = '<h3>Risks:</h3>' + risks; // Set risks as HTML content
-
-  document.getElementById('results').style.display = 'block';
-}
-
-
-        function setEndDate() {
-            const endDateInput = document.getElementById('endDate');
-            const currentDate = new Date();
-            const formattedDate = currentDate.toISOString().split('T')[0];
-            endDateInput.value = formattedDate;
-        }
-
-        // Automatically set the current date if "End Date" input is left blank
-        window.onload = function () {
-            const endDateInput = document.getElementById('endDate');
-            const currentDate = new Date();
-            const formattedDate = currentDate.toISOString().split('T')[0];
-            endDateInput.value = formattedDate;
-        };
-    </script>
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
+        integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- JS -->
+    <script src="../script.js"></script>
+    <script src="smoking.js"></script>
 </body>
 
 </html>

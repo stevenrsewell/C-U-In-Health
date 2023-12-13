@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Body Mass Index</title>
+    <title>Total Daily Energy Expenditure</title>
 
     <!-- Materialize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -45,23 +45,54 @@
     </header>
 
     <main>
-        <!-- BMI Calculator -->
+        <!-- TDEE Calculator -->
         <div class="container">
-            <h2>Body Mass Index Calculator</h2>
+            <h2>TDEE Calculator</h2>
+
             <div class="input-field">
-                <label for="weight">Enter your weight (lbs):</label>
+                <label for="gender">Gender:</label>
+                <select id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div><br>
+
+            <div class="input-field">
+                <label for="age">Age (years):</label>
+                <input type="number" id="age" class="validate">
+            </div><br>
+
+            <div class="input-field">
+                <label for="weight">Weight (lbs):</label>
                 <input type="number" id="weight" class="validate">
-            </div>
+            </div><br>
+
             <div class="input-field">
-                <label for="feet">Enter your height in feet:</label>
+                <label for="feet">Height (feet):</label>
                 <input type="number" id="feet" class="validate">
-            </div>
+            </div><br>
+
             <div class="input-field">
-                <label for="inches">Enter your height in inches:</label>
+                <label for="inches">Height (inches):</label>
                 <input type="number" id="inches" class="validate">
-            </div>
-            <button onclick="calculateBMI()" class="btn waves-effect waves-light">Calculate BMI</button>
-            <div id="result"></div>
+            </div><br>
+
+            <div class="input-field">
+                <label for="activity">Activity Level:</label>
+                <select id="activity">
+                    <option value="1.2">Sedentary (little to no exercise)</option>
+                    <option value="1.375">Lightly active (light exercise/sports 1-3 days/week)</option>
+                    <option value="1.55">Moderately active (moderate exercise/sports 3-5 days/week)</option>
+                    <option value="1.725">Very active (hard exercise/sports 6-7 days a week)</option>
+                    <option value="1.9">Extra active (very hard exercise & physical job or training twice a day)
+                    </option>
+                </select>
+            </div><br>
+
+            <button class="btn waves-effect waves-light" onclick="calculateTDEE()">Calculate</button><br><br>
+
+            <h3>Result:</h3>
+            <p id="result"></p>
         </div>
 
         <!-- Floating Action Button -->
@@ -128,7 +159,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- JS -->
     <script src="../script.js"></script>
-    <script src="bmi.js"></script>
+    <script src="tdee.js"></script>
 </body>
 
 </html>

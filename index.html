@@ -2,42 +2,254 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>C. U. In Health</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <header>
+        <!-- Navigation Bar -->
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo">C. U. In Health</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                    <span class="material-symbols-outlined">
+                        density_medium
+                    </span>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="calculators/bmi.html">Body Mass Index</a></li>
+                        <li><a href="calculators/bmr.html">Basal Metabolic Rate</a></li>
+                        <li><a href="calculators/tdee.html">Total Daily Energy Expenditure</a></li>
+                        <li><a href="calculators/sleep.html">Sleep Interval</a></li>
+                        <li><a href="calculators/smoking.html">Smoking Risk</a></li>
+                    </ul>
+            </div>
+        </nav>
+        <!-- Mobile Nav -->
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="calculators/bmi.html">Body Mass Index</a></li>
+            <li><a href="calculators/bmr.html">Basal Metabolic Rate</a></li>
+            <li><a href="calculators/tdee.html">Total Daily Energy Expenditure</a></li>
+            <li><a href="calculators/sleep.html">Sleep Interval</a></li>
+            <li><a href="calculators/smoking.html">Smoking Risk</a></li>
+        </ul>
+    </header>
 
-  <h1>C. U. In Health</h1>
+    <main >
+        <!-- Jumbotron -->
+        <div class="carousel carousel-slider center">
+            <div class="carousel-item blue white-text">
+                <h2>Body Mass Index (BMI) Calculator</h2>
+                <p class="white-text">Calculate your body mass index using your height and weight</p>
+                <a href="calculators/bmi.html" class="btn waves-effect white grey-text darken-text-2">Calculate BMI</a>
+            </div>
+            <div class="carousel-item green white-text">
+                <h2>Basal Metabolic Rate (BMR) Calculator</h2>
+                <p class="white-text">Determine the amount of energy your body expends while at rest.</p>
+                <a href="calculators/bmr.html" class="btn waves-effect white grey-text darken-text-2">Calculate BMR</a>
+            </div>
+            <div class="carousel-item yellow white-text">
+                <h2>Total Daily Energy Expenditure (TDEE) Calculator</h2>
+                <p class="white-text">Find out represents the total number of calories you burn in a day, encompassing
+                    your basal metabolic rate (BMR), physical activity, and the energy used for digestion.</p>
+                <a href="calculators/tdee.html" class="btn waves-effect white grey-text darken-text-2">Calculate
+                    TDEE</a>
+            </div>
+            <div class="carousel-item red white-text">
+                <h2>Sleep Duration Calculator</h2>
+                <p class="white-text">Determine how much sleep you need for your age group, and a bedtime interval you
+                    can choose to meet that requirement.</p>
+                <a href="calculators/sleep.html" class="btn waves-effect white grey-text darken-text-2">Calculate
+                    Sleep</a>
+            </div>
+            <div class="carousel-item purple white-text">
+                <h2>Smoking Risk Calculator</h2>
+                <p class="white-text">Find out the effects that prolonged cigarette smoking has on your overall health.
+                </p>
+                <a href="calculators/smoking.html" class="btn waves-effect white grey-text darken-text-2">Calculate
+                    Smoking Risks</a>
+            </div>
+        </div>
 
-  <button id="bmiButton">BMI Calculator</button>
-  <button id="calorieButton">Calorie Counter</button>
-  <button id="sleepButton">Sleep Calculator</button>
-  <button id="bmrButton">BMR Calculator</button>
-  <button id="smokingButton">Smoking Risk Calculator</button>
+        <!-- Feature Discovery -->
+        <a id="menu" class="waves-effect waves-light btn btn-floating">
+            <span class="material-symbols-outlined">
+                info
+            </span></a>
+        <div class="tap-target" data-target="menu">
+            <div class="tap-target-content">
+                <h5>Materialize</h5>
+                <p>This site is styled with Google's Materialize.</p>
+                <p>Content sections include a Navigation Bar, Jumbotron, Floating Action Button, Cards, and Footer.</p>
+                <p>All images are open source from Unsplash.</p>
+                <p>Icons are from Google Fonts.</p>
+            </div>
+        </div>
 
-  <script>
-    document.getElementById('bmiButton').onclick = function () {
-      window.location.href = 'bmicalculator.html';
-    };
+        <!-- Floating Action Button -->
+        <div class="fixed-action-btn">
+            <a class="btn-floating btn-large red"><span class="material-symbols-outlined">calculate</span></a>
+            <ul>
+                <li><a href="calculators/smoking.html" class="btn-floating purple"><span
+                            class="material-symbols-outlined">smoke_free</span></a></li>
+                <li><a href="calculators/sleep.html" class="btn-floating red"><span
+                            class="material-symbols-outlined">bed</span></a></li>
+                <li><a href="calculators/tdee.html" class="btn-floating yellow"><span
+                            class="material-symbols-outlined">exercise</span></a></li>
+                <li><a href="calculators/bmr.html" class="btn-floating green"><span
+                            class="material-symbols-outlined">grocery</span></a></li>
+                <li><a href="calculators/bmi.html" class="btn-floating blue"><span
+                            class="material-symbols-outlined">monitor_weight</span></a></li>
+            </ul>
+        </div>
 
-    document.getElementById('calorieButton').onclick = function () {
-      window.location.href = 'caloriecalculator.html';
-    };
+        <!-- Cards -->
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="img/tape.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title">BMI Calculator</span>
+                        <p>BMI, or Body Mass Index, is a measure of body fat based on a person's weight and height. It's
+                            calculated by dividing a person's weight in kilograms by the square of their height in
+                            meters.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="calculators/bmi.html">BMI Calculator</a>
+                    </div>
+                </div>
+            </div>
 
-    document.getElementById('sleepButton').onclick = function () {
-      window.location.href = 'sleepcalculator.html';
-    };
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="img/nutrition.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title">BMR Calculator</span>
+                        <p>Basal Metabolic Rate (BMR) is the amount of energy your body needs at rest to maintain basic
+                            physiological functions. It's calculated using factors like age, weight, height, and gender.
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <a href="calculators/bmr.html">BMR Calculator</a>
+                    </div>
+                </div>
+            </div>
 
-    document.getElementById('bmrButton').onclick = function () {
-      window.location.href = 'bmr.html';
-    };
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="img/barbell.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title">TDEE Calculator</span>
+                        <p>Total Daily Energy Expenditure (TDEE) is the total number of calories you burn in a day,
+                            accounting for your basal metabolic rate (BMR), physical activity, and the thermic effect of
+                            food.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="calculators/tdee.html">TDEE Calculator</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    document.getElementById('smokingButton').onclick = function () {
-      window.location.href = 'smoking.html';
-    };
-  </script>
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="img/bed.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title">Sleep Calculator</span>
+                        <p>Adequate sleep is crucial for overall health as it supports cognitive function, memory
+                            consolidation, and emotional well-being. It also aids in physical restoration, immune
+                            function, and helps regulate hormones essential for metabolism and proper bodily function.
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <a href="calculators/sleep.html">Sleep Calculator</a>
+                    </div>
+                </div>
+            </div>
 
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="img/cigarette.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title">Smoking Risk Calculator</span>
+                        <p>Smoking significantly increases the risk of various health conditions, including lung cancer,
+                            heart disease, stroke, and respiratory issues. It also heightens the likelihood of
+                            developing chronic conditions like chronic obstructive pulmonary disease and can
+                            decrease overall life expectancy.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="calculators/smoking.html">Smoking Risk Calculator</a>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <!-- Footer-->
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">C U in Health</h5>
+                    <p class="grey-text text-lighten-4">I'll C. U. in Health!</p>
+                </div>
+                <div class="col l6 s12">
+                    <h5 class="white-text">Calculators</h5>
+                    <div class="row">
+                        <div class="col s3">
+                            <a class="grey-text text-lighten-3" href="calculators/bmi.html">BMI</a>
+                        </div>
+                        <div class="col s3">
+                            <a class="grey-text text-lighten-3" href="calculators/bmr.html">BMR</a>
+                        </div>
+                        <div class="col s3">
+                            <a class="grey-text text-lighten-3" href="calculators/tdee.html">TDEE</a>
+                        </div>
+                        <div class="col s3">
+                            <a class="grey-text text-lighten-3" href="calculators/sleep.html">Sleep</a>
+                        </div>
+                        <div class="col s3">
+                            <a class="grey-text text-lighten-3" href="calculators/smoking.html">Smoking</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2023 C. U. in Health
+                <a class="grey-text text-lighten-4 right" href="https://stevensewell.com">Steven Sewell</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
+        integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- JS -->
+    <script src="script.js"></script>
 </body>
 
 </html>

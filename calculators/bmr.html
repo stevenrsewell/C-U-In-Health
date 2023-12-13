@@ -1,47 +1,134 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>BMR Calculator</title>
-</head>
-<body>
-  <h2>BMR Calculator</h2>
-  
-  <label for="weight">Weight (lbs):</label>
-  <input type="number" id="weight" placeholder="Enter weight in pounds"><br><br>
-  
-  <label for="feet">Height (feet):</label>
-  <input type="number" id="feet" placeholder="Feet"><br><br>
-  
-  <label for="inches">Height (inches):</label>
-  <input type="number" id="inches" placeholder="Inches"><br><br>
-  
-  <button onclick="calculateBMR()">Calculate BMR</button><br><br>
-  
-  <p id="result"></p>
+<html lang="en">
 
-  <script>
-    function calculateBMR() {
-      var weight = parseFloat(document.getElementById('weight').value);
-      var feet = parseFloat(document.getElementById('feet').value);
-      var inches = parseFloat(document.getElementById('inches').value);
-      
-      // Convert height to total inches
-      var heightInInches = feet * 12 + inches;
-      
-      // Harris-Benedict Equation
-      var age = 30; // Set age as an example (can be input by the user)
-      var harrisBenedictMen = 88.362 + (13.397 * weight) + (4.799 * heightInInches) - (5.677 * age);
-      var harrisBenedictWomen = 447.593 + (9.247 * weight) + (3.098 * heightInInches) - (4.330 * age);
-      
-      // Mifflin-St Jeor Equation
-      var mifflinStJeorMen = 10 * weight + 6.25 * heightInInches - 5 * age + 5;
-      var mifflinStJeorWomen = 10 * weight + 6.25 * heightInInches - 5 * age - 161;
-      
-      // Displaying the results
-      var result = document.getElementById('result');
-      result.innerHTML = "<strong>BMR using Harris-Benedict Equation:</strong><br>For men: " + harrisBenedictMen.toFixed(2) + " calories/day<br>For women: " + harrisBenedictWomen.toFixed(2) + " calories/day<br><br>";
-      result.innerHTML += "<strong>BMR using Mifflin-St Jeor Equation:</strong><br>For men: " + mifflinStJeorMen.toFixed(2) + " calories/day<br>For women: " + mifflinStJeorWomen.toFixed(2) + " calories/day";
-    }
-  </script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basal Metabolic Rate</title>
+
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <header>
+        <!-- Navigation Bar -->
+        <nav>
+            <div class="nav-wrapper">
+                <a href="../index.html" class="brand-logo">C. U. In Health</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                    <span class="material-symbols-outlined">
+                        density_medium
+                    </span>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="bmi.html">Body Mass Index</a></li>
+                        <li><a href="bmr.html">Basal Metabolic Rate</a></li>
+                        <li><a href="tdee.html">Total Daily Energy Expenditure</a></li>
+                        <li><a href="sleep.html">Sleep Interval</a></li>
+                        <li><a href="smoking.html">Smoking Risk</a></li>
+                    </ul>
+            </div>
+        </nav>
+        <!-- Mobile Nav -->
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="bmi.html">Body Mass Index</a></li>
+            <li><a href="bmr.html">Basal Metabolic Rate</a></li>
+            <li><a href="tdee.html">Total Daily Energy Expenditure</a></li>
+            <li><a href="sleep.html">Sleep Interval</a></li>
+            <li><a href="smoking.html">Smoking Risk</a></li>
+        </ul>
+    </header>
+
+    <main>
+        <!-- BMR Calculator -->
+        <div class="container">
+            <h2>Basal Metabolic Rate Calculator</h2>
+            <div class="input-field">
+                <label for="weight">Weight (lbs):</label>
+                <input type="number" id="weight" placeholder="Enter weight in pounds" class="validate">
+            </div>
+            <div class="input-field">
+                <label for="feet">Height (feet):</label>
+                <input type="number" id="feet" placeholder="Feet" class="validate">
+            </div>
+            <div class="input-field">
+                <label for="inches">Height (inches):</label>
+                <input type="number" id="inches" placeholder="Inches" class="validate">
+            </div>
+            <button onclick="calculateBMR()" class="btn waves-effect waves-light">Calculate BMR</button>
+            <p id="result"></p>
+        </div>
+
+        <!-- Floating Action Button -->
+        <div class="fixed-action-btn">
+            <a class="btn-floating btn-large red"><span class="material-symbols-outlined">calculate</span></a>
+            <ul>
+                <li><a href="smoking.html" class="btn-floating purple"><span
+                            class="material-symbols-outlined">smoke_free</span></a></li>
+                <li><a href="sleep.html" class="btn-floating red"><span
+                            class="material-symbols-outlined">bed</span></a></li>
+                <li><a href="tdee.html" class="btn-floating yellow"><span
+                            class="material-symbols-outlined">exercise</span></a></li>
+                <li><a href="bmr.html" class="btn-floating green"><span
+                            class="material-symbols-outlined">grocery</span></a></li>
+                <li><a href="bmi.html" class="btn-floating blue"><span
+                            class="material-symbols-outlined">monitor_weight</span></a></li>
+            </ul>
+        </div>
+    </main>
+
+    <!-- Footer-->
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">C U in Health</h5>
+                    <p class="grey-text text-lighten-4">I'll C. U. in Health!</p>
+                </div>
+                <div class="col l6 s12">
+                    <h5 class="white-text">Calculators</h5>
+                    <div class="row">
+                        <div class="col s3">
+                            <a class="grey-text text-lighten-3" href="bmi.html">BMI</a>
+                        </div>
+                        <div class="col s3">
+                            <a class="grey-text text-lighten-3" href="bmr.html">BMR</a>
+                        </div>
+                        <div class="col s3">
+                            <a class="grey-text text-lighten-3" href="tdee.html">TDEE</a>
+                        </div>
+                        <div class="col s3">
+                            <a class="grey-text text-lighten-3" href="sleep.html">Sleep</a>
+                        </div>
+                        <div class="col s3">
+                            <a class="grey-text text-lighten-3" href="smoking.html">Smoking</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2023 C. U. in Health
+                <a class="grey-text text-lighten-4 right" href="https://stevensewell.com">Steven Sewell</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
+        integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- JS -->
+    <script src="../script.js"></script>
+    <script src="bmr.js"></script>
 </body>
+
 </html>
