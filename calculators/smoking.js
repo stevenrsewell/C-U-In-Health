@@ -67,15 +67,25 @@ function displayRisks(gender) {
         risks = { ...femaleRisks };
     }
 
-    // Format the risks for display
+    // Mapping the risk keys to their formatted titles
+    const riskTitles = {
+        lungCancerRisk: 'Lung Cancer Risk',
+        erectileDysfunction: 'Erectile Dysfunction',
+        pregnancyIssues: 'Pregnancy Issues',
+        menopause: 'Menopause'
+    };
+
+    // Format the risks for display using formatted titles
     let formattedRisks = '<ul>';
     for (let key in risks) {
-        formattedRisks += `<li><strong>${key}:</strong> ${risks[key]}</li>`;
+        const riskTitle = riskTitles[key];
+        formattedRisks += `<li><strong>${riskTitle}:</strong> ${risks[key]}</li>`;
     }
     formattedRisks += '</ul>';
 
     return formattedRisks;
 }
+
 
 
 function calculateRisks() {

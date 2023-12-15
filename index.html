@@ -44,7 +44,7 @@
         </ul>
     </header>
 
-    <main >
+    <main>
         <!-- Jumbotron -->
         <div class="carousel carousel-slider center">
             <div class="carousel-item blue white-text">
@@ -244,12 +244,24 @@
 
     <!-- Materialize JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!-- jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
-        integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- JS -->
     <script src="script.js"></script>
+    <!-- Feature Discovery -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const elem = document.querySelector('.tap-target');
+            const instance = M.TapTarget.init(elem);
+
+            const menuButton = document.getElementById('menu');
+            menuButton.addEventListener('click', function () {
+                if (!instance.isOpen) {
+                    instance.open();
+                } else {
+                    instance.close();
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

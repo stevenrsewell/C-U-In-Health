@@ -59,21 +59,22 @@
                 </div><br>
 
                 <div class="input-field">
-                    <label for="gender">Gender:</label>
                     <select id="gender" class="input-field">
+                        <option value="" disabled selected>Select</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                     </select>
+                    <label for="gender">Gender:</label>
                 </div><br>
 
                 <div class="input-field">
+                    <input type="date" id="startDate" class="timepicker">
                     <label for="startDate">Start Date:</label>
-                    <input type="date" id="startDate" class="validate">
                 </div><br>
 
                 <div class="input-field">
+                    <input type="date" id="endDate" class="timepicker">
                     <label for="endDate">End Date:</label>
-                    <input type="date" id="endDate" class="validate">
                     <button type="button" onclick="setEndDate()" class="waves-effect waves-light btn">Haven't
                         Stopped</button>
                 </div><br>
